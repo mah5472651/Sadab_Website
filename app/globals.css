@@ -426,17 +426,30 @@ a {
 }
 
 .timeline-ref-section {
+  position: relative;
   width: 100%;
   overflow: hidden;
   scroll-margin-top: 88px;
   padding: 92px 24px 112px;
   background:
-    radial-gradient(circle at 82% 8%, rgba(255, 121, 36, 0.52), transparent 360px),
-    radial-gradient(circle at 16% 70%, rgba(239, 69, 18, 0.26), transparent 330px),
-    linear-gradient(180deg, #241007 0%, #070606 44%, #050505 100%);
+    radial-gradient(ellipse at 80% 12%, rgba(255, 120, 36, 0.56) 0%, rgba(180, 61, 18, 0.24) 30%, transparent 62%),
+    radial-gradient(ellipse at 12% 72%, rgba(255, 77, 24, 0.24) 0%, rgba(118, 32, 11, 0.14) 36%, transparent 64%),
+    linear-gradient(180deg, #050505 0%, #150805 16%, #0e0605 66%, #050505 100%);
+}
+
+.timeline-ref-section::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 26%, rgba(255, 123, 51, 0.12), transparent 44%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.42), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.5));
+  content: "";
+  pointer-events: none;
 }
 
 .timeline-ref-inner {
+  position: relative;
+  z-index: 1;
   width: min(100%, 1140px);
   margin: 0 auto;
 }
@@ -478,11 +491,11 @@ a {
 
 .timeline-ref-stage::before {
   position: absolute;
-  inset: 26px -70px -42px;
-  border-radius: 36px;
+  inset: -24px -70px -50px;
+  border-radius: 0;
   background:
-    radial-gradient(circle at 78% 20%, rgba(255, 133, 41, 0.18), transparent 280px),
-    radial-gradient(circle at 20% 94%, rgba(255, 89, 28, 0.16), transparent 300px);
+    radial-gradient(ellipse at 78% 20%, rgba(255, 134, 42, 0.12), transparent 320px),
+    radial-gradient(ellipse at 50% 92%, rgba(255, 85, 20, 0.18), transparent 470px);
   content: "";
   pointer-events: none;
 }
@@ -1061,13 +1074,11 @@ a {
   width: 100%;
   overflow: hidden;
   padding: 112px 24px 104px;
-  background:
-    radial-gradient(circle at 18% 10%, rgba(255, 75, 29, 0.38), transparent 420px),
-    radial-gradient(circle at 80% 18%, rgba(111, 34, 24, 0.18), transparent 440px),
-    linear-gradient(180deg, #160b09, #0b0a0a 72%, #0c0c0c);
+  background: #0c0c0c;
 }
 
 .pricing-ref-ambient {
+  display: none;
   position: absolute;
   top: -210px;
   left: -130px;
