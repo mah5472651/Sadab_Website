@@ -375,7 +375,7 @@ function HowItWorks() {
       className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <span className="text-sm font-bold uppercase tracking-[0.2em] text-fuchsia-300">
+        <span className="text-sm font-bold uppercase tracking-[0.2em] text-copper">
           Simple, sharp, repeatable
         </span>
         <h2 className="mt-3 text-4xl font-black tracking-normal text-white sm:text-5xl">
@@ -389,15 +389,15 @@ function HowItWorks() {
             key={step.title}
             whileHover={{ y: -8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-fuchsia-300/25 bg-[radial-gradient(circle_at_8%_0%,rgba(236,72,153,0.26),transparent_34%),radial-gradient(circle_at_100%_100%,rgba(168,85,247,0.22),transparent_34%),linear-gradient(135deg,rgba(55,18,74,0.66),rgba(14,12,19,0.95)_52%,rgba(8,8,12,0.98))] p-7 shadow-[0_0_54px_rgba(168,85,247,0.22),inset_0_1px_0_rgba(255,255,255,0.08)]"
+            className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#ff6738]/25 bg-[radial-gradient(circle_at_8%_0%,rgba(255,103,56,0.25),transparent_34%),radial-gradient(circle_at_100%_100%,rgba(194,65,12,0.22),transparent_34%),linear-gradient(135deg,rgba(62,22,12,0.68),rgba(19,13,12,0.95)_52%,rgba(8,8,12,0.98))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.18),inset_0_1px_0_rgba(255,255,255,0.08)]"
           >
             <span className="pointer-events-none absolute -right-3 top-2 text-[12rem] font-black leading-none text-white/[0.06] md:text-[10rem] lg:text-[12rem]">
               {step.number}
             </span>
-            <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_34%,rgba(217,70,239,0.16))] opacity-60" />
+            <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_34%,rgba(255,103,56,0.16))] opacity-60" />
             <div className="relative z-10 flex h-full flex-col justify-between">
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-300">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-copper">
                   {step.label}
                 </span>
                 <h3 className="mt-4 text-3xl font-black tracking-normal text-white">
@@ -407,7 +407,7 @@ function HowItWorks() {
                   {step.copy}
                 </p>
               </div>
-              <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-fuchsia-300/30 bg-white/[0.06] text-fuchsia-200 shadow-[0_0_24px_rgba(217,70,239,0.22)]">
+              <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[#ff6738]/35 bg-white/[0.06] text-[#ffd0b8] shadow-[0_0_24px_rgba(255,75,29,0.24)]">
                 <Check className="h-5 w-5" />
               </div>
             </div>
@@ -733,8 +733,8 @@ function Footer() {
   const legalLinks = ["Terms of Service", "Privacy Policy", "Cookie Policy", "Sitemap"];
 
   return (
-    <footer id="footer" className="px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-fuchsia-200/20 bg-[radial-gradient(circle_at_12%_0%,rgba(236,72,153,0.2),transparent_34%),radial-gradient(circle_at_100%_100%,rgba(168,85,247,0.18),transparent_38%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(17,12,24,0.9)_50%,rgba(8,8,12,0.98))] p-6 shadow-[0_0_64px_rgba(168,85,247,0.2),inset_0_1px_0_rgba(255,255,255,0.1)] sm:p-8 lg:p-12">
+    <footer id="footer" className="bg-[#0c0c0c] px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-[#ff6738]/20 bg-[radial-gradient(circle_at_12%_0%,rgba(255,103,56,0.2),transparent_34%),radial-gradient(circle_at_100%_100%,rgba(194,65,12,0.18),transparent_38%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(24,13,10,0.9)_50%,rgba(8,8,12,0.98))] p-6 shadow-[0_0_64px_rgba(255,75,29,0.16),inset_0_1px_0_rgba(255,255,255,0.1)] sm:p-8 lg:p-12">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.9fr_0.9fr_1.1fr]">
           <div>
             <a href="#" className="flex items-center gap-3">
@@ -751,7 +751,7 @@ function Footer() {
                   key={link.label}
                   href={link.href}
                   aria-label={link.label}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-fuchsia-200/20 bg-white/[0.05] text-zinc-300 transition hover:-translate-y-0.5 hover:border-fuchsia-300/45 hover:text-white"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-[#ff6738]/20 bg-white/[0.05] text-zinc-300 transition hover:-translate-y-0.5 hover:border-[#ff8a60]/45 hover:text-white"
                 >
                   <SocialIcon path={link.path} />
                 </a>
@@ -785,15 +785,15 @@ function Footer() {
             <h3 className="font-black text-white">Contact Us</h3>
             <div className="mt-6 grid gap-5 text-sm font-semibold leading-6 text-zinc-400">
               <div className="flex gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-fuchsia-300" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
                 <span>Dhaka, Bangladesh<br />Available worldwide</span>
               </div>
               <div className="flex gap-3">
-                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-fuchsia-300" />
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
                 <span>hello@mmedia.studio</span>
               </div>
               <div className="flex gap-3">
-                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-fuchsia-300" />
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
                 <span>Book a project call</span>
               </div>
             </div>
