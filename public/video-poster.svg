@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="a" cx="30%" cy="18%" r="60%">
+      <stop offset="0%" stop-color="#F59E57" stop-opacity=".36"/>
+      <stop offset="100%" stop-color="#0B0B0F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b" cx="78%" cy="35%" r="58%">
+      <stop offset="0%" stop-color="#14B8A6" stop-opacity=".28"/>
+      <stop offset="100%" stop-color="#0B0B0F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="c" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111115"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#c)"/>
+  <rect width="1600" height="900" fill="url(#a)"/>
+  <rect width="1600" height="900" fill="url(#b)"/>
+  <g opacity=".22" stroke="#fff">
+    <path d="M0 160h1600M0 320h1600M0 480h1600M0 640h1600M0 800h1600"/>
+    <path d="M160 0v900M320 0v900M480 0v900M640 0v900M800 0v900M960 0v900M1120 0v900M1280 0v900M1440 0v900"/>
+  </g>
+  <circle cx="800" cy="450" r="92" fill="#F59E57" opacity=".2"/>
+  <circle cx="800" cy="450" r="70" fill="#fff" opacity=".09"/>
+  <path d="M779 405v90l78-45z" fill="#fff"/>
+  <text x="800" y="595" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" fill="#fff">Mufidujjaman Showreel</text>
+</svg>
