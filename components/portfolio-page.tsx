@@ -392,7 +392,7 @@ function HowItWorks() {
               key={step.title}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#ff6738]/32 bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.34),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.24),transparent_42%),linear-gradient(135deg,rgba(55,18,9,0.78),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.2),0_22px_70px_rgba(0,0,0,0.34)]"
+              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[rgba(255,79,35,0.24)] bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.34),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.24),transparent_42%),linear-gradient(135deg,rgba(55,18,9,0.78),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.2),0_22px_70px_rgba(0,0,0,0.34)]"
             >
               <span className="pointer-events-none absolute -right-3 top-2 text-[12rem] font-black leading-none text-white/[0.065] md:text-[10rem] lg:text-[12rem]">
                 {step.number}
@@ -410,7 +410,7 @@ function HowItWorks() {
                     {step.copy}
                   </p>
                 </div>
-                <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[#ff6738]/42 bg-white/[0.07] text-[#ffb69a] shadow-[0_0_24px_rgba(255,75,29,0.26)]">
+                <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[rgba(255,103,56,0.32)] bg-[rgba(255,79,35,0.045)] text-[#ffb69a] shadow-[0_0_24px_rgba(255,75,29,0.24)]">
                   <Check className="h-5 w-5" />
                 </div>
               </div>
