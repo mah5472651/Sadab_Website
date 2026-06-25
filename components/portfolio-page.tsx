@@ -733,8 +733,8 @@ function Footer() {
   const legalLinks = ["Terms of Service", "Privacy Policy", "Cookie Policy", "Sitemap"];
 
   return (
-    <footer id="footer" className="bg-[#0c0c0c] px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-[#ff6738]/20 bg-[radial-gradient(circle_at_12%_0%,rgba(255,103,56,0.2),transparent_34%),radial-gradient(circle_at_100%_100%,rgba(194,65,12,0.18),transparent_38%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(24,13,10,0.9)_50%,rgba(8,8,12,0.98))] p-6 shadow-[0_0_64px_rgba(255,75,29,0.16),inset_0_1px_0_rgba(255,255,255,0.1)] sm:p-8 lg:p-12">
+    <footer id="footer" className="bg-[radial-gradient(circle_at_50%_0%,rgba(255,75,29,0.1),transparent_34rem),#0c0c0c] px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-[#ff8a60]/30 bg-[radial-gradient(circle_at_14%_-4%,rgba(255,103,56,0.38),transparent_33%),radial-gradient(circle_at_82%_0%,rgba(255,180,120,0.16),transparent_30%),radial-gradient(circle_at_100%_100%,rgba(194,65,12,0.28),transparent_42%),linear-gradient(135deg,rgba(42,17,9,0.98),rgba(19,12,10,0.96)_50%,rgba(7,7,9,0.99))] p-6 shadow-[0_0_88px_rgba(255,75,29,0.24),0_30px_100px_rgba(0,0,0,0.48),inset_0_1px_0_rgba(255,255,255,0.14)] sm:p-8 lg:p-12">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.9fr_0.9fr_1.1fr]">
           <div>
             <a href="#" className="flex items-center gap-3">
@@ -751,7 +751,7 @@ function Footer() {
                   key={link.label}
                   href={link.href}
                   aria-label={link.label}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-[#ff6738]/20 bg-white/[0.05] text-zinc-300 transition hover:-translate-y-0.5 hover:border-[#ff8a60]/45 hover:text-white"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-[#ff8a60]/25 bg-white/[0.055] text-zinc-300 shadow-[0_0_18px_rgba(255,75,29,0.08)] transition hover:-translate-y-0.5 hover:border-[#ffb07c]/55 hover:text-white hover:shadow-[0_0_26px_rgba(255,75,29,0.18)]"
                 >
                   <SocialIcon path={link.path} />
                 </a>

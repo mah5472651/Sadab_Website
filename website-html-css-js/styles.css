@@ -1079,7 +1079,9 @@ h1 {
 
 .footer {
   padding: 64px 24px 32px;
-  background: #0c0c0c;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 75, 29, 0.1), transparent 34rem),
+    #0c0c0c;
 }
 
 .footer > * {
@@ -1091,14 +1093,18 @@ h1 {
 .footer-panel {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 103, 56, 0.2);
+  border: 1px solid rgba(255, 138, 96, 0.3);
   border-radius: 32px;
   background:
-    radial-gradient(circle at 12% 0%, rgba(255, 103, 56, 0.2), transparent 34%),
-    radial-gradient(circle at 100% 100%, rgba(194, 65, 12, 0.18), transparent 38%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(24, 13, 10, 0.9) 50%, rgba(8, 8, 12, 0.98));
+    radial-gradient(circle at 14% -4%, rgba(255, 103, 56, 0.38), transparent 33%),
+    radial-gradient(circle at 82% 0%, rgba(255, 180, 120, 0.16), transparent 30%),
+    radial-gradient(circle at 100% 100%, rgba(194, 65, 12, 0.28), transparent 42%),
+    linear-gradient(135deg, rgba(42, 17, 9, 0.98), rgba(19, 12, 10, 0.96) 50%, rgba(7, 7, 9, 0.99));
   padding: 48px;
-  box-shadow: 0 0 64px rgba(255, 75, 29, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 88px rgba(255, 75, 29, 0.24),
+    0 30px 100px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 .footer-content {
@@ -1139,12 +1145,13 @@ h1 {
   width: 44px;
   height: 44px;
   place-items: center;
-  border: 1px solid rgba(255, 103, 56, 0.2);
+  border: 1px solid rgba(255, 138, 96, 0.25);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   color: #d4d4d8;
   font-size: 12px;
   font-weight: 900;
+  box-shadow: 0 0 18px rgba(255, 75, 29, 0.08);
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -1155,8 +1162,9 @@ h1 {
 }
 
 .social-links a:hover {
-  border-color: rgba(255, 138, 96, 0.45);
+  border-color: rgba(255, 176, 124, 0.55);
   color: var(--white);
+  box-shadow: 0 0 26px rgba(255, 75, 29, 0.18);
 }
 
 .contact-list {
