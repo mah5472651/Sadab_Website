@@ -1256,6 +1256,81 @@ a {
   transform: translateY(-1px);
 }
 
+.footer-ref-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 75, 29, 0.18), transparent 34rem),
+    radial-gradient(ellipse at 12% 40%, rgba(255, 103, 56, 0.1), transparent 30rem),
+    #0c0c0c;
+}
+
+.footer-ref-section::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12, 12, 12, 0), rgba(12, 12, 12, 0.62) 80%),
+    radial-gradient(ellipse at 88% 18%, rgba(255, 180, 120, 0.08), transparent 28rem);
+  content: "";
+  pointer-events: none;
+}
+
+.footer-ref-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 160, 104, 0.38);
+  background:
+    radial-gradient(circle at 11% -8%, rgba(255, 103, 56, 0.56), transparent 32%),
+    radial-gradient(circle at 55% -18%, rgba(255, 181, 123, 0.18), transparent 28%),
+    radial-gradient(circle at 100% 100%, rgba(194, 65, 12, 0.36), transparent 42%),
+    linear-gradient(135deg, rgba(55, 19, 8, 0.99), rgba(21, 12, 9, 0.97) 48%, rgba(6, 6, 8, 0.99));
+  box-shadow:
+    0 0 110px rgba(255, 75, 29, 0.3),
+    0 36px 120px rgba(0, 0, 0, 0.56),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 103, 56, 0.12);
+}
+
+.footer-ref-panel::before {
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(2rem - 1px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 32%, rgba(255, 103, 56, 0.12)),
+    radial-gradient(ellipse at 16% 8%, rgba(255, 226, 203, 0.08), transparent 18rem);
+  content: "";
+  pointer-events: none;
+}
+
+.footer-ref-panel::after {
+  position: absolute;
+  right: -12%;
+  bottom: -36%;
+  width: 520px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 75, 29, 0.24), transparent 68%);
+  content: "";
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.footer-ref-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-ref-social {
+  border: 1px solid rgba(255, 176, 124, 0.32);
+  background: rgba(255, 255, 255, 0.065);
+  box-shadow: 0 0 22px rgba(255, 75, 29, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.footer-ref-social:hover {
+  border-color: rgba(255, 204, 168, 0.62);
+  box-shadow: 0 0 32px rgba(255, 75, 29, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
 .pricing-ref-resources {
   display: grid;
   margin-top: 25px;
