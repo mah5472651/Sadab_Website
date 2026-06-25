@@ -392,12 +392,12 @@ function HowItWorks() {
               key={step.title}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#ff6738]/32 bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.34),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.24),transparent_42%),linear-gradient(135deg,rgba(55,18,9,0.78),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.2),0_22px_70px_rgba(0,0,0,0.34),inset_0_1px_0_rgba(255,255,255,0.1)]"
+              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#ff6738]/32 bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.34),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.24),transparent_42%),linear-gradient(135deg,rgba(55,18,9,0.78),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.2),0_22px_70px_rgba(0,0,0,0.34)]"
             >
               <span className="pointer-events-none absolute -right-3 top-2 text-[12rem] font-black leading-none text-white/[0.065] md:text-[10rem] lg:text-[12rem]">
                 {step.number}
               </span>
-              <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent_34%,rgba(255,103,56,0.16))] opacity-70" />
+              <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,103,56,0.08),transparent_38%,rgba(255,79,35,0.1))] opacity-65" />
               <div className="relative z-10 flex h-full flex-col justify-between">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6738]">

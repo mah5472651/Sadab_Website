@@ -660,8 +660,7 @@ h1 {
   padding: 28px;
   box-shadow:
     0 0 54px rgba(255, 75, 29, 0.2),
-    0 22px 70px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 22px 70px rgba(0, 0, 0, 0.34);
   transition: transform 0.25s ease;
 }
 
@@ -670,9 +669,9 @@ h1 {
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 34%, rgba(255, 103, 56, 0.16));
+  background: linear-gradient(135deg, rgba(255, 103, 56, 0.08), transparent 38%, rgba(255, 79, 35, 0.1));
   content: "";
-  opacity: 0.6;
+  opacity: 0.65;
 }
 
 .step-card:hover {
