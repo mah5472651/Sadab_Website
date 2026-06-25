@@ -575,8 +575,8 @@ h1 {
   max-width: none;
   padding: 96px 24px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 75, 29, 0.16), transparent 30rem),
-    radial-gradient(circle at 12% 58%, rgba(255, 103, 56, 0.14), transparent 26rem),
+    radial-gradient(circle at 50% 0%, rgba(255, 103, 56, 0.18), transparent 30rem),
+    radial-gradient(circle at 12% 58%, rgba(255, 79, 35, 0.1), transparent 26rem),
     linear-gradient(180deg, #0b0b0f 0%, #100806 45%, #0c0c0c 100%);
 }
 
@@ -651,15 +651,15 @@ h1 {
   overflow: hidden;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(255, 138, 96, 0.35);
+  border: 1px solid rgba(255, 103, 56, 0.32);
   border-radius: 24px;
   background:
-    radial-gradient(circle at 10% 0%, rgba(255, 103, 56, 0.42), transparent 35%),
-    radial-gradient(circle at 90% 100%, rgba(194, 65, 12, 0.32), transparent 42%),
-    linear-gradient(135deg, rgba(70, 23, 10, 0.82), rgba(20, 13, 11, 0.96) 52%, rgba(8, 8, 12, 0.99));
+    radial-gradient(circle at 10% 0%, rgba(255, 103, 56, 0.34), transparent 35%),
+    radial-gradient(circle at 90% 100%, rgba(255, 79, 35, 0.24), transparent 42%),
+    linear-gradient(135deg, rgba(55, 18, 9, 0.78), rgba(18, 12, 10, 0.96) 52%, rgba(8, 8, 12, 0.99));
   padding: 28px;
   box-shadow:
-    0 0 68px rgba(255, 75, 29, 0.24),
+    0 0 54px rgba(255, 75, 29, 0.2),
     0 22px 70px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: transform 0.25s ease;
@@ -670,7 +670,7 @@ h1 {
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 34%, rgba(255, 103, 56, 0.2));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 34%, rgba(255, 103, 56, 0.16));
   content: "";
   opacity: 0.6;
 }
@@ -691,7 +691,7 @@ h1 {
 
 .step-label {
   margin-bottom: 16px;
-  color: #ffb07c;
+  color: #ff6738;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.18em;
@@ -722,11 +722,11 @@ h1 {
   place-items: center;
   position: relative;
   z-index: 1;
-  border: 1px solid rgba(255, 176, 124, 0.45);
+  border: 1px solid rgba(255, 103, 56, 0.42);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
-  color: #ffe0cd;
-  box-shadow: 0 0 30px rgba(255, 75, 29, 0.32);
+  color: #ffb69a;
+  box-shadow: 0 0 24px rgba(255, 75, 29, 0.26);
   font-weight: 900;
 }
 
@@ -1126,8 +1126,8 @@ h1 {
   overflow: hidden;
   padding: 64px 24px 32px;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 75, 29, 0.18), transparent 34rem),
-    radial-gradient(ellipse at 12% 40%, rgba(255, 103, 56, 0.1), transparent 30rem),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 103, 56, 0.14), transparent 34rem),
+    radial-gradient(ellipse at 12% 40%, rgba(255, 79, 35, 0.08), transparent 30rem),
     #0c0c0c;
 }
 
@@ -1136,7 +1136,7 @@ h1 {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(12, 12, 12, 0), rgba(12, 12, 12, 0.62) 80%),
-    radial-gradient(ellipse at 88% 18%, rgba(255, 180, 120, 0.08), transparent 28rem);
+    radial-gradient(ellipse at 88% 18%, rgba(255, 103, 56, 0.07), transparent 28rem);
   content: "";
   pointer-events: none;
 }
@@ -1152,19 +1152,19 @@ h1 {
 .footer-panel {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 160, 104, 0.38);
+  border: 1px solid rgba(255, 103, 56, 0.34);
   border-radius: 32px;
   background:
-    radial-gradient(circle at 11% -8%, rgba(255, 103, 56, 0.56), transparent 32%),
-    radial-gradient(circle at 55% -18%, rgba(255, 181, 123, 0.18), transparent 28%),
-    radial-gradient(circle at 100% 100%, rgba(194, 65, 12, 0.36), transparent 42%),
-    linear-gradient(135deg, rgba(55, 19, 8, 0.99), rgba(21, 12, 9, 0.97) 48%, rgba(6, 6, 8, 0.99));
+    radial-gradient(circle at 11% -8%, rgba(255, 103, 56, 0.36), transparent 32%),
+    radial-gradient(circle at 55% -18%, rgba(255, 103, 56, 0.1), transparent 28%),
+    radial-gradient(circle at 100% 100%, rgba(255, 79, 35, 0.22), transparent 42%),
+    linear-gradient(135deg, rgba(44, 16, 8, 0.99), rgba(18, 12, 10, 0.97) 48%, rgba(6, 6, 8, 0.99));
   padding: 48px;
   box-shadow:
-    0 0 110px rgba(255, 75, 29, 0.3),
+    0 0 86px rgba(255, 75, 29, 0.22),
     0 36px 120px rgba(0, 0, 0, 0.56),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(255, 103, 56, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(255, 103, 56, 0.1);
 }
 
 .footer-panel::before {
@@ -1172,8 +1172,8 @@ h1 {
   inset: 1px;
   border-radius: calc(32px - 1px);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 32%, rgba(255, 103, 56, 0.12)),
-    radial-gradient(ellipse at 16% 8%, rgba(255, 226, 203, 0.08), transparent 18rem);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.11), transparent 32%, rgba(255, 103, 56, 0.1)),
+    radial-gradient(ellipse at 16% 8%, rgba(255, 206, 182, 0.06), transparent 18rem);
   content: "";
   pointer-events: none;
 }
@@ -1185,7 +1185,7 @@ h1 {
   width: 520px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 75, 29, 0.24), transparent 68%);
+  background: radial-gradient(circle, rgba(255, 75, 29, 0.16), transparent 68%);
   content: "";
   filter: blur(12px);
   pointer-events: none;
@@ -1234,13 +1234,13 @@ h1 {
   width: 44px;
   height: 44px;
   place-items: center;
-  border: 1px solid rgba(255, 176, 124, 0.32);
+  border: 1px solid rgba(255, 103, 56, 0.3);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.065);
+  background: rgba(255, 255, 255, 0.058);
   color: #d4d4d8;
   font-size: 12px;
   font-weight: 900;
-  box-shadow: 0 0 22px rgba(255, 75, 29, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 18px rgba(255, 75, 29, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -1251,9 +1251,9 @@ h1 {
 }
 
 .social-links a:hover {
-  border-color: rgba(255, 204, 168, 0.62);
+  border-color: rgba(255, 103, 56, 0.58);
   color: var(--white);
-  box-shadow: 0 0 32px rgba(255, 75, 29, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 26px rgba(255, 75, 29, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .contact-list {

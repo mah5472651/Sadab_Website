@@ -372,13 +372,13 @@ function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(255,75,29,0.16),transparent_30rem),radial-gradient(circle_at_12%_58%,rgba(255,103,56,0.14),transparent_26rem),linear-gradient(180deg,#0b0b0f_0%,#100806_45%,#0c0c0c_100%)] px-4 py-24 sm:px-6 lg:px-8"
+      className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(255,103,56,0.18),transparent_30rem),radial-gradient(circle_at_12%_58%,rgba(255,79,35,0.1),transparent_26rem),linear-gradient(180deg,#0b0b0f_0%,#100806_45%,#0c0c0c_100%)] px-4 py-24 sm:px-6 lg:px-8"
     >
       <span className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0b0b0f] to-transparent" />
       <span className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0c0c0c] to-transparent" />
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#ff9b6a]">
+          <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#ff6738]">
             Simple, sharp, repeatable
           </span>
           <h2 className="mt-3 text-4xl font-black tracking-normal text-white sm:text-5xl">
@@ -392,15 +392,15 @@ function HowItWorks() {
               key={step.title}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#ff8a60]/35 bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.42),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(194,65,12,0.32),transparent_42%),linear-gradient(135deg,rgba(70,23,10,0.82),rgba(20,13,11,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_68px_rgba(255,75,29,0.24),0_22px_70px_rgba(0,0,0,0.34),inset_0_1px_0_rgba(255,255,255,0.1)]"
+              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#ff6738]/32 bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.34),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.24),transparent_42%),linear-gradient(135deg,rgba(55,18,9,0.78),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.2),0_22px_70px_rgba(0,0,0,0.34),inset_0_1px_0_rgba(255,255,255,0.1)]"
             >
               <span className="pointer-events-none absolute -right-3 top-2 text-[12rem] font-black leading-none text-white/[0.065] md:text-[10rem] lg:text-[12rem]">
                 {step.number}
               </span>
-              <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.16),transparent_34%,rgba(255,103,56,0.2))] opacity-70" />
+              <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent_34%,rgba(255,103,56,0.16))] opacity-70" />
               <div className="relative z-10 flex h-full flex-col justify-between">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#ffb07c]">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6738]">
                     {step.label}
                   </span>
                   <h3 className="mt-4 text-3xl font-black tracking-normal text-white">
@@ -410,7 +410,7 @@ function HowItWorks() {
                     {step.copy}
                   </p>
                 </div>
-                <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[#ffb07c]/45 bg-white/[0.075] text-[#ffe0cd] shadow-[0_0_30px_rgba(255,75,29,0.32)]">
+                <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[#ff6738]/42 bg-white/[0.07] text-[#ffb69a] shadow-[0_0_24px_rgba(255,75,29,0.26)]">
                   <Check className="h-5 w-5" />
                 </div>
               </div>
