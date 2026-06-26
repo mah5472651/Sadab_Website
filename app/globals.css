@@ -301,6 +301,114 @@ a {
   filter: brightness(1.08);
 }
 
+.showreel-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 72px 24px 92px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 103, 56, 0.1), transparent 34rem),
+    radial-gradient(circle at 12% 82%, rgba(255, 79, 35, 0.08), transparent 28rem),
+    linear-gradient(180deg, #0c0c0c 0%, #0d0706 54%, #0b0b0f 100%);
+}
+
+.showreel-section::before,
+.showreel-section::after {
+  position: absolute;
+  inset-inline: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.showreel-section::before {
+  top: 0;
+  height: 140px;
+  background: linear-gradient(180deg, #050505, transparent);
+}
+
+.showreel-section::after {
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(0deg, #0b0b0f, transparent);
+}
+
+.showreel-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.showreel-copy span {
+  color: #ff6738;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.showreel-copy h2 {
+  margin: 12px 0 0;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.showreel-copy p {
+  max-width: 620px;
+  margin: 18px auto 0;
+  color: rgba(255,255,255,0.62);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.showreel-frame {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 980px);
+  margin: 0 auto;
+  border: 1px solid rgba(255, 137, 91, 0.2);
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(255, 137, 91, 0.13), rgba(255,255,255,0.025) 26%, rgba(255, 79, 35, 0.08)),
+    rgba(12, 12, 14, 0.72);
+  padding: 10px;
+  box-shadow:
+    0 0 64px rgba(255, 75, 29, 0.18),
+    0 28px 90px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  backdrop-filter: blur(18px);
+}
+
+.showreel-frame::before {
+  position: absolute;
+  inset: -28px 10%;
+  z-index: -1;
+  border-radius: 999px;
+  background: radial-gradient(ellipse, rgba(255, 79, 35, 0.2), transparent 68%);
+  content: "";
+  filter: blur(18px);
+}
+
+.showreel-screen {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  background: #050505;
+  aspect-ratio: 16 / 9;
+}
+
+.showreel-screen video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .testimonial-marquee-section {
   position: relative;
   width: 100%;
@@ -1153,10 +1261,16 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .showreel-frame,
   .testimonial-marquee-row,
   .showcase-ref-node-motion,
   .showcase-ref-node svg {
     animation: none;
+  }
+
+  .showreel-frame {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .showcase-ref-node svg {

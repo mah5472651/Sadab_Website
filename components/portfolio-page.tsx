@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -274,6 +274,7 @@ export default function PortfolioPage() {
 
       <Header />
       <Hero />
+      <VideoShowcase />
       <HowItWorks />
       <Testimonials />
       <EditingTimeline />
@@ -362,6 +363,52 @@ function Hero() {
             Start Free Trial
             <ArrowRight className="h-4 w-4" />
           </a>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+function VideoShowcase() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [88, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.45, 1], [0.45, 0.85, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.94, 1]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="showreel-section"
+      aria-labelledby="showreel-title"
+    >
+      <div className="showreel-copy">
+        <span>Featured edit</span>
+        <h2 id="showreel-title">See the pacing before we talk.</h2>
+        <p>
+          A compact look at the rhythm, color, captions, and story polish I
+          bring into creator and brand videos.
+        </p>
+      </div>
+
+      <motion.div
+        className="showreel-frame"
+        style={{ y, opacity, scale }}
+      >
+        <div className="showreel-screen">
+          <video
+            src="/mufidujjaman-showreel.mp4"
+            poster="/video-poster.svg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            preload="metadata"
+          />
         </div>
       </motion.div>
     </section>
