@@ -372,7 +372,7 @@ function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(255,103,56,0.18),transparent_30rem),radial-gradient(circle_at_12%_58%,rgba(255,79,35,0.1),transparent_26rem),linear-gradient(180deg,#0b0b0f_0%,#100806_45%,#0c0c0c_100%)] px-4 py-24 sm:px-6 lg:px-8"
+      className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(255,103,56,0.12),transparent_30rem),radial-gradient(circle_at_12%_58%,rgba(255,79,35,0.06),transparent_26rem),linear-gradient(180deg,#0b0b0f_0%,#0d0706_45%,#0c0c0c_100%)] px-4 py-24 sm:px-6 lg:px-8"
     >
       <span className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0b0b0f] to-transparent" />
       <span className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0c0c0c] to-transparent" />
@@ -392,12 +392,12 @@ function HowItWorks() {
               key={step.title}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[rgba(255,79,35,0.24)] bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.34),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.24),transparent_42%),linear-gradient(135deg,rgba(55,18,9,0.78),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_54px_rgba(255,75,29,0.2),0_22px_70px_rgba(0,0,0,0.34)]"
+              className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[rgba(255,79,35,0.18)] bg-[radial-gradient(circle_at_10%_0%,rgba(255,103,56,0.24),transparent_35%),radial-gradient(circle_at_90%_100%,rgba(255,79,35,0.16),transparent_42%),linear-gradient(135deg,rgba(46,15,8,0.72),rgba(18,12,10,0.96)_52%,rgba(8,8,12,0.99))] p-7 shadow-[0_0_42px_rgba(255,75,29,0.13),0_22px_70px_rgba(0,0,0,0.34)]"
             >
               <span className="pointer-events-none absolute -right-3 top-2 text-[12rem] font-black leading-none text-white/[0.065] md:text-[10rem] lg:text-[12rem]">
                 {step.number}
               </span>
-              <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,103,56,0.08),transparent_38%,rgba(255,79,35,0.1))] opacity-65" />
+              <span className="pointer-events-none absolute -inset-px rounded-2xl bg-[linear-gradient(135deg,rgba(255,103,56,0.05),transparent_38%,rgba(255,79,35,0.07))] opacity-55" />
               <div className="relative z-10 flex h-full flex-col justify-between">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6738]">
@@ -410,7 +410,7 @@ function HowItWorks() {
                     {step.copy}
                   </p>
                 </div>
-                <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[rgba(255,103,56,0.32)] bg-[rgba(255,79,35,0.045)] text-[#ffb69a] shadow-[0_0_24px_rgba(255,75,29,0.24)]">
+                <div className="mt-8 grid h-12 w-12 place-items-center rounded-full border border-[rgba(255,103,56,0.26)] bg-[rgba(255,79,35,0.035)] text-[#ffb69a] shadow-[0_0_20px_rgba(255,75,29,0.16)]">
                   <Check className="h-5 w-5" />
                 </div>
               </div>
