@@ -120,6 +120,11 @@ const editingTimelineSteps = [
   }
 ];
 
+const editGalleryVideos = Array.from({ length: 12 }, (_, index) => ({
+  title: `Edit ${String(index + 1).padStart(2, "0")}`,
+  src: `/edit-gallery/edit-${String(index + 1).padStart(2, "0")}.mp4`
+}));
+
 const pricingPlans = [
   {
     name: "Starter",
@@ -275,6 +280,7 @@ export default function PortfolioPage() {
       <Header />
       <Hero />
       <VideoShowcase />
+      <EditGallery />
       <HowItWorks />
       <Testimonials />
       <EditingTimeline />
@@ -411,6 +417,50 @@ function VideoShowcase() {
           />
         </div>
       </motion.div>
+    </section>
+  );
+}
+
+function EditGallery() {
+  return (
+    <section className="edit-gallery-section" aria-labelledby="edit-gallery-title">
+      <div className="edit-gallery-heading">
+        <span>Selected work</span>
+        <h2 id="edit-gallery-title">12 edits built for attention.</h2>
+        <p>
+          A clean wall of vertical edits, built to autoplay silently so the
+          pacing, hooks, captions, and polish can speak first.
+        </p>
+      </div>
+
+      <div className="edit-gallery-grid">
+        {editGalleryVideos.map((video, index) => (
+          <motion.article
+            key={`${video.title}-${index}`}
+            className="edit-gallery-card"
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: (index % 3) * 0.05 }}
+          >
+            <div className="edit-gallery-video-wrap">
+              <video
+                src={video.src}
+                muted
+                autoPlay
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              />
+            </div>
+            <div className="edit-gallery-meta">
+              <span>{video.title}</span>
+              <small>Muted autoplay</small>
+            </div>
+          </motion.article>
+        ))}
+      </div>
     </section>
   );
 }
