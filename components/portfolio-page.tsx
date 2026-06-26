@@ -120,9 +120,11 @@ const editingTimelineSteps = [
   }
 ];
 
-const editGalleryVideos = Array.from({ length: 12 }, (_, index) => ({
+const editGalleryOrder = [10, 11, 12, 4, 5, 6, 7, 8, 9, 1, 2, 3];
+
+const editGalleryVideos = editGalleryOrder.map((videoNumber, index) => ({
   title: `Edit ${String(index + 1).padStart(2, "0")}`,
-  src: `/edit-gallery/edit-${String(index + 1).padStart(2, "0")}.mp4`
+  src: `/edit-gallery/edit-${String(videoNumber).padStart(2, "0")}.mp4`
 }));
 
 const pricingPlans = [
@@ -287,6 +289,7 @@ export default function PortfolioPage() {
       <GrowthShowcase />
       <Pricing />
       <FAQ />
+      <ContactSection />
       <Footer />
     </main>
   );
@@ -316,7 +319,7 @@ function Header() {
 
         <div className="ref-nav-actions">
           <a
-            href="#pricing"
+            href="#contact"
             className="ref-contact-button"
           >
             Contact Us
@@ -828,6 +831,85 @@ function FAQ() {
             </motion.article>
           );
         })}
+      </div>
+    </section>
+  );
+}
+
+function ContactSection() {
+  const contactMethods = [
+    {
+      label: "Email us",
+      value: "hello@mmedia.studio",
+      href: "mailto:hello@mmedia.studio",
+      icon: Mail
+    },
+    {
+      label: "Call us",
+      value: "Book a project call",
+      href: "#pricing",
+      icon: Phone
+    },
+    {
+      label: "Our location",
+      value: "Dhaka, Bangladesh",
+      href: "https://www.google.com/maps/search/Dhaka%2C%20Bangladesh",
+      icon: MapPin
+    }
+  ];
+
+  return (
+    <section id="contact" className="contact-ref-section" aria-labelledby="contact-title">
+      <span className="contact-ref-word" aria-hidden="true">Contact</span>
+      <span className="contact-ref-line contact-ref-line-left" aria-hidden="true" />
+      <span className="contact-ref-line contact-ref-line-right" aria-hidden="true" />
+
+      <div className="contact-ref-inner">
+        <div className="contact-ref-copy">
+          <span className="contact-ref-pill">
+            <Sparkles className="h-3.5 w-3.5" />
+            Contact
+          </span>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>
+            Have footage, a launch idea, or a content system you want to make
+            sharper? Send the details and I will help shape the next edit.
+          </p>
+
+          <div className="contact-ref-methods">
+            {contactMethods.map((method) => {
+              const Icon = method.icon;
+              return (
+                <a key={method.label} href={method.href} className="contact-ref-method">
+                  <span className="contact-ref-method-icon">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span>
+                    <strong>{method.label}</strong>
+                    <small>{method.value}</small>
+                  </span>
+                  <ArrowUpRight className="contact-ref-method-arrow h-4 w-4" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        <form className="contact-ref-form" onSubmit={(event) => event.preventDefault()}>
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Name" autoComplete="name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="Email" autoComplete="email" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" placeholder="Message" rows={8} />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </section>
   );
