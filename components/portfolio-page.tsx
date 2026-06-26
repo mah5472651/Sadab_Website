@@ -704,15 +704,6 @@ function AudienceInsight() {
             For creator content, <strong>audience behavior</strong> becomes the
             foundation for rhythm, captions, color, and story.
           </p>
-
-          <span className="audience-ref-rule" aria-hidden="true" />
-
-          <h3>Audience age and attention patterns</h3>
-          <p>
-            Most social video decisions happen in the first seconds. The edit
-            has to deliver clarity fast, maintain momentum, and make the next
-            action feel obvious without overwhelming the viewer.
-          </p>
         </div>
 
         <div className="audience-ref-visual" aria-label="Video editing optimization diagram">
