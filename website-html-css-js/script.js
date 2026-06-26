@@ -6,9 +6,9 @@ const faqItems = document.querySelectorAll(".faq-ref-item");
 const galleryVideos = Array.from(document.querySelectorAll(".edit-gallery-video-wrap video"));
 
 const socialProfileLinks = {
-  instagram: "#",
+  instagram: "https://www.instagram.com/sadab.motion/",
   linkedin: "#",
-  facebook: "#",
+  facebook: "https://www.facebook.com/share/198RWN9Pdv/",
   twitter: "#"
 };
 

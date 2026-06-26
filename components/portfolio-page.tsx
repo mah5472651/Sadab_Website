@@ -172,7 +172,7 @@ const pricingPlans = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/sadab.motion/",
     path: "M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"
   },
   {
@@ -182,7 +182,7 @@ const socialLinks = [
   },
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/share/198RWN9Pdv/",
     path: "M13.5 22v-8h2.68l.4-3.12H13.5V8.9c0-.9.25-1.52 1.55-1.52h1.65V4.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.25H7.52V14h2.72v8h3.26Z"
   },
   {
@@ -977,14 +977,14 @@ function ContactSection() {
   const contactMethods = [
     {
       label: "Email us",
-      value: "hello@mmedia.studio",
-      href: "mailto:hello@mmedia.studio",
+      value: "msadab2005@gmail.com",
+      href: "mailto:msadab2005@gmail.com",
       icon: Mail
     },
     {
       label: "Call us",
-      value: "Book a project call",
-      href: "#pricing",
+      value: "01617893050",
+      href: "https://wa.me/8801617893050",
       icon: Phone
     },
     {
@@ -1127,11 +1127,15 @@ function Footer() {
               </div>
               <div className="flex gap-3">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                <span>hello@mmedia.studio</span>
+                <a href="mailto:msadab2005@gmail.com" className="hover:text-white">
+                  msadab2005@gmail.com
+                </a>
               </div>
               <div className="flex gap-3">
                 <Phone className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                <span>Book a project call</span>
+                <a href="https://wa.me/8801617893050" className="hover:text-white">
+                  01617893050
+                </a>
               </div>
             </div>
           </div>
