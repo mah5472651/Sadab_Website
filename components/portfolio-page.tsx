@@ -258,7 +258,7 @@ function LogoImage({ className = "h-10 w-10" }: { className?: string }) {
         alt="Mufidujjaman logo"
         fill
         sizes="44px"
-        className="object-cover"
+        className="object-cover object-[50%_28%]"
         priority
       />
     </span>
@@ -1017,7 +1017,14 @@ function ContactSection() {
             {contactMethods.map((method) => {
               const Icon = method.icon;
               return (
-                <a key={method.label} href={method.href} className="contact-ref-method">
+                <a
+                  key={method.label}
+                  href={method.href}
+                  className="contact-ref-method"
+                  target={method.href.startsWith("http") ? "_blank" : "_self"}
+                  rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={`${method.label}: ${method.value}`}
+                >
                   <span className="contact-ref-method-icon">
                     <Icon className="h-5 w-5" />
                   </span>
@@ -1127,13 +1134,24 @@ function Footer() {
               </div>
               <div className="flex gap-3">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                <a href="mailto:msadab2005@gmail.com" className="hover:text-white">
+                <a
+                  href="mailto:msadab2005@gmail.com"
+                  className="hover:text-white"
+                  target="_self"
+                  aria-label="Email msadab2005@gmail.com"
+                >
                   msadab2005@gmail.com
                 </a>
               </div>
               <div className="flex gap-3">
                 <Phone className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                <a href="https://wa.me/8801617893050" className="hover:text-white">
+                <a
+                  href="https://wa.me/8801617893050"
+                  className="hover:text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open WhatsApp chat with 01617893050"
+                >
                   01617893050
                 </a>
               </div>
