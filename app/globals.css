@@ -301,6 +301,99 @@ a {
   filter: brightness(1.08);
 }
 
+.testimonial-marquee-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 86px 0 96px;
+  background:
+    radial-gradient(circle at 16% 24%, rgba(255, 103, 56, 0.1), transparent 26rem),
+    radial-gradient(circle at 84% 70%, rgba(255, 79, 35, 0.08), transparent 24rem),
+    linear-gradient(180deg, #0c0c0c 0%, #0f0806 48%, #0c0c0c 100%);
+}
+
+.testimonial-marquee-section::before,
+.testimonial-marquee-section::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.testimonial-marquee-section::before {
+  background-image:
+    linear-gradient(rgba(255, 103, 56, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 103, 56, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 72%);
+}
+
+.testimonial-marquee-section::after {
+  background:
+    linear-gradient(90deg, #0c0c0c 0%, transparent 14%, transparent 86%, #0c0c0c 100%),
+    linear-gradient(180deg, #0c0c0c 0%, transparent 18%, transparent 82%, #0c0c0c 100%);
+}
+
+.testimonial-marquee-wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  margin-top: 48px;
+  gap: 20px;
+}
+
+.testimonial-marquee-row {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  padding-right: 20px;
+  animation: testimonialMarqueeLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-marquee-row-reverse {
+  animation-name: testimonialMarqueeRight;
+}
+
+.testimonial-marquee-card {
+  width: clamp(280px, 30vw, 390px);
+  min-height: 252px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 103, 56, 0.16);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(255, 103, 56, 0.18), transparent 36%),
+    radial-gradient(circle at 95% 100%, rgba(255, 79, 35, 0.14), transparent 44%),
+    linear-gradient(135deg, rgba(33, 13, 8, 0.86), rgba(15, 12, 12, 0.96) 58%, rgba(9, 9, 12, 0.99));
+  padding: 24px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 137, 91, 0.09),
+    0 0 34px rgba(255, 75, 29, 0.08),
+    0 18px 56px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+@keyframes testimonialMarqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+@keyframes testimonialMarqueeRight {
+  from {
+    transform: translateX(calc(-100% / 3));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .faq-ref-section {
   width: 100%;
   padding: 86px 24px 96px;
@@ -1060,6 +1153,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee-row,
   .showcase-ref-node-motion,
   .showcase-ref-node svg {
     animation: none;

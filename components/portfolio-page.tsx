@@ -218,8 +218,8 @@ function AvatarImage({ initials }: { initials: string }) {
     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
       <defs>
         <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#14B8A6"/>
-          <stop offset="48%" stop-color="#1E293B"/>
+          <stop offset="0%" stop-color="#FF6738"/>
+          <stop offset="48%" stop-color="#2A1009"/>
           <stop offset="100%" stop-color="#F59E57"/>
         </linearGradient>
       </defs>
@@ -423,12 +423,14 @@ function HowItWorks() {
 }
 
 function Testimonials() {
+  const rows = [testimonials.slice(0, 3), testimonials.slice(3)];
+
   return (
     <section
       id="testimonials"
-      className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+      className="testimonial-marquee-section"
     >
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <span className="text-sm font-bold uppercase tracking-[0.2em] text-copper">
           Trusted by creators and brands
         </span>
@@ -437,40 +439,55 @@ function Testimonials() {
         </h2>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((testimonial) => (
-          <motion.article
-            key={testimonial.handle}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="rounded-2xl border border-white/10 bg-white/[0.045] p-6 shadow-glass backdrop-blur-xl"
+      <div className="testimonial-marquee-wrap">
+        {rows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className={`testimonial-marquee-row ${
+              rowIndex === 1 ? "testimonial-marquee-row-reverse" : ""
+            }`}
           >
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <AvatarImage initials={testimonial.avatar} />
-                <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full border-2 border-[#101014] bg-emerald text-ink">
-                  <BadgeCheck className="h-3.5 w-3.5" />
-                </span>
-              </div>
-              <div>
-                <h3 className="font-bold text-white">{testimonial.name}</h3>
-                <p className="text-sm text-zinc-500">{testimonial.handle}</p>
-              </div>
-            </div>
-            <div className="mt-5 flex gap-1 text-copper">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <Star key={index} className="h-4 w-4 fill-current" />
-              ))}
-            </div>
-            <p className="mt-4 text-sm leading-7 text-zinc-300">
-              {testimonial.review}
-            </p>
-          </motion.article>
+            {[...row, ...row, ...row].map((testimonial, index) => (
+              <TestimonialCard
+                key={`${testimonial.handle}-${rowIndex}-${index}`}
+                testimonial={testimonial}
+              />
+            ))}
+          </div>
         ))}
       </div>
     </section>
+  );
+}
+
+function TestimonialCard({
+  testimonial
+}: {
+  testimonial: (typeof testimonials)[number];
+}) {
+  return (
+    <article className="testimonial-marquee-card">
+      <div className="flex items-center gap-4">
+        <div className="relative">
+          <AvatarImage initials={testimonial.avatar} />
+          <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full border-2 border-[#120906] bg-[linear-gradient(180deg,#ff8a5f,#ff4f23)] text-white shadow-[0_0_18px_rgba(255,75,29,0.38)]">
+            <BadgeCheck className="h-3.5 w-3.5" />
+          </span>
+        </div>
+        <div>
+          <h3 className="font-bold text-white">{testimonial.name}</h3>
+          <p className="text-sm text-zinc-500">{testimonial.handle}</p>
+        </div>
+      </div>
+      <div className="mt-5 flex gap-1 text-copper">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Star key={index} className="h-4 w-4 fill-current" />
+        ))}
+      </div>
+      <p className="mt-4 text-sm leading-7 text-zinc-300">
+        {testimonial.review}
+      </p>
+    </article>
   );
 }
 
