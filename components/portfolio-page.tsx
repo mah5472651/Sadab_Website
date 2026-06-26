@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -425,6 +425,77 @@ function VideoShowcase() {
 }
 
 function EditGallery() {
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+
+  useEffect(() => {
+    const videos = videoRefs.current.filter(Boolean) as HTMLVideoElement[];
+
+    if (!videos.length) {
+      return;
+    }
+
+    const pauseAndMute = (video: HTMLVideoElement) => {
+      video.pause();
+      video.muted = true;
+    };
+
+    const playMuted = (video: HTMLVideoElement) => {
+      video.muted = true;
+      void video.play().catch(() => {
+        // Browsers may block autoplay until the user interacts.
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          const isPlayable = entry.isIntersecting && entry.intersectionRatio >= 0.35;
+
+          if (isPlayable) {
+            playMuted(video);
+          } else {
+            pauseAndMute(video);
+          }
+        });
+      },
+      {
+        threshold: [0, 0.35, 0.65],
+        rootMargin: "-8% 0px -8% 0px"
+      }
+    );
+
+    videos.forEach((video) => {
+      video.muted = true;
+      observer.observe(video);
+    });
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        videos.forEach(pauseAndMute);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  const handleVolumeChange = (activeVideo: HTMLVideoElement | null) => {
+    if (!activeVideo || activeVideo.muted || activeVideo.volume === 0) {
+      return;
+    }
+
+    videoRefs.current.forEach((video) => {
+      if (video && video !== activeVideo) {
+        video.muted = true;
+      }
+    });
+  };
+
   return (
     <section className="edit-gallery-section" aria-labelledby="edit-gallery-title">
       <div className="edit-gallery-heading">
@@ -448,13 +519,16 @@ function EditGallery() {
           >
             <div className="edit-gallery-video-wrap">
               <video
+                ref={(element) => {
+                  videoRefs.current[index] = element;
+                }}
                 src={video.src}
                 muted
-                autoPlay
                 loop
                 playsInline
                 controls
                 preload="metadata"
+                onVolumeChange={(event) => handleVolumeChange(event.currentTarget)}
               />
             </div>
             <div className="edit-gallery-meta">
