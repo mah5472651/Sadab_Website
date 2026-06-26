@@ -285,6 +285,7 @@ export default function PortfolioPage() {
       <EditGallery />
       <HowItWorks />
       <Testimonials />
+      <AudienceInsight />
       <EditingTimeline />
       <GrowthShowcase />
       <Pricing />
@@ -665,6 +666,77 @@ function TestimonialCard({
   );
 }
 
+function AudienceInsight() {
+  const orbitItems = [
+    {
+      className: "audience-orbit-top",
+      title: "Brand Color Optimization",
+      copy: "Keep the visual system consistent"
+    },
+    {
+      className: "audience-orbit-left",
+      title: "Stronger First Frame",
+      copy: "Raise the opening hook"
+    },
+    {
+      className: "audience-orbit-right",
+      title: "Icon & Caption Polish",
+      copy: "Improve instant recognition"
+    },
+    {
+      className: "audience-orbit-bottom",
+      title: "Delight Details",
+      copy: "Add memorable emotional cues"
+    }
+  ];
+
+  return (
+    <section className="audience-ref-section" aria-labelledby="audience-title">
+      <div className="audience-ref-inner">
+        <div className="audience-ref-copy">
+          <span className="audience-ref-badge">1.1 Audience Insight</span>
+          <h2 id="audience-title">
+            Viewer personas behind every high-retention edit
+          </h2>
+          <p>
+            Before cutting a frame, I study who is watching, what makes them
+            stop, and which visual cues help the message feel instantly clear.
+            For creator content, <strong>audience behavior</strong> becomes the
+            foundation for rhythm, captions, color, and story.
+          </p>
+
+          <span className="audience-ref-rule" aria-hidden="true" />
+
+          <h3>Audience age and attention patterns</h3>
+          <p>
+            Most social video decisions happen in the first seconds. The edit
+            has to deliver clarity fast, maintain momentum, and make the next
+            action feel obvious without overwhelming the viewer.
+          </p>
+        </div>
+
+        <div className="audience-ref-visual" aria-label="Video editing optimization diagram">
+          <div className="audience-diamond-large" aria-hidden="true" />
+          <div className="audience-diamond-core">
+            <strong>Higher Content Recall</strong>
+            <span>Visual clarity upgrade</span>
+          </div>
+          {orbitItems.map((item) => (
+            <div key={item.title} className={`audience-orbit-node ${item.className}`}>
+              <strong>{item.title}</strong>
+              <span>{item.copy}</span>
+            </div>
+          ))}
+          <span className="audience-dot audience-dot-top" aria-hidden="true" />
+          <span className="audience-dot audience-dot-left" aria-hidden="true" />
+          <span className="audience-dot audience-dot-right" aria-hidden="true" />
+          <span className="audience-dot audience-dot-bottom" aria-hidden="true" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function EditingTimeline() {
   return (
     <section id="editing-timeline" className="timeline-ref-section" aria-labelledby="editing-timeline-title">
@@ -927,7 +999,7 @@ function ContactSection() {
     {
       label: "Our location",
       value: "Dhaka, Bangladesh",
-      href: "https://www.google.com/maps/search/Dhaka%2C%20Bangladesh",
+      href: "https://www.google.com/maps/place/Dhaka,+Bangladesh",
       icon: MapPin
     }
   ];
