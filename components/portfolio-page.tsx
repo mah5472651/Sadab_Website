@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -977,6 +978,9 @@ function FAQ() {
 }
 
 function ContactSection() {
+  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formMessage, setFormMessage] = useState("");
+
   const contactMethods = [
     {
       label: "Email us",
@@ -997,6 +1001,48 @@ function ContactSection() {
       icon: MapPin
     }
   ];
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      message: String(formData.get("message") || "").trim()
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      setFormStatus("error");
+      setFormMessage("Please fill in your name, email, and message.");
+      return;
+    }
+
+    setFormStatus("loading");
+    setFormMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Unable to submit right now.");
+      }
+
+      form.reset();
+      setFormStatus("success");
+      setFormMessage("Message sent. I will get back to you soon.");
+    } catch (error) {
+      setFormStatus("error");
+      setFormMessage(error instanceof Error ? error.message : "Unable to submit right now.");
+    }
+  }
 
   return (
     <section id="contact" className="contact-ref-section" aria-labelledby="contact-title">
@@ -1042,20 +1088,27 @@ function ContactSection() {
           </div>
         </div>
 
-        <form className="contact-ref-form" onSubmit={(event) => event.preventDefault()}>
+        <form className="contact-ref-form" onSubmit={handleContactSubmit}>
           <label>
             <span>Name</span>
-            <input type="text" name="name" placeholder="Name" autoComplete="name" />
+            <input type="text" name="name" placeholder="Name" autoComplete="name" required />
           </label>
           <label>
             <span>Email</span>
-            <input type="email" name="email" placeholder="Email" autoComplete="email" />
+            <input type="email" name="email" placeholder="Email" autoComplete="email" required />
           </label>
           <label>
             <span>Message</span>
-            <textarea name="message" placeholder="Message" rows={8} />
+            <textarea name="message" placeholder="Message" rows={8} required />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={formStatus === "loading"}>
+            {formStatus === "loading" ? "Sending..." : "Submit"}
+          </button>
+          {formMessage ? (
+            <p className={`contact-ref-status is-${formStatus}`} role="status">
+              {formMessage}
+            </p>
+          ) : null}
         </form>
       </div>
     </section>

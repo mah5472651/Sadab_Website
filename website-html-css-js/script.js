@@ -4,6 +4,7 @@ const revealElements = document.querySelectorAll(".reveal");
 const yearElement = document.querySelector("#year");
 const faqItems = document.querySelectorAll(".faq-ref-item");
 const galleryVideos = Array.from(document.querySelectorAll(".edit-gallery-video-wrap video"));
+const contactForm = document.querySelector(".contact-ref-form");
 
 const socialProfileLinks = {
   instagram: "https://www.instagram.com/sadab.motion/",
@@ -135,3 +136,69 @@ faqItems.forEach((item) => {
     }
   });
 });
+
+if (contactForm) {
+  const statusElement = contactForm.querySelector(".contact-ref-status");
+  const submitButton = contactForm.querySelector("button[type='submit']");
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(contactForm);
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      message: String(formData.get("message") || "").trim()
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      if (statusElement) {
+        statusElement.hidden = false;
+        statusElement.className = "contact-ref-status is-error";
+        statusElement.textContent = "Please fill in your name, email, and message.";
+      }
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    if (statusElement) {
+      statusElement.hidden = true;
+      statusElement.textContent = "";
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.message || "Unable to submit right now.");
+      }
+
+      contactForm.reset();
+      if (statusElement) {
+        statusElement.hidden = false;
+        statusElement.className = "contact-ref-status is-success";
+        statusElement.textContent = "Message sent. I will get back to you soon.";
+      }
+    } catch (error) {
+      if (statusElement) {
+        statusElement.hidden = false;
+        statusElement.className = "contact-ref-status is-error";
+        statusElement.textContent =
+          error instanceof Error ? error.message : "Unable to submit right now.";
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit";
+      }
+    }
+  });
+}

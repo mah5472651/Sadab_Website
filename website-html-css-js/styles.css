@@ -2021,6 +2021,28 @@ h1 {
   transform: translateY(-1px);
 }
 
+.contact-ref-form button:disabled {
+  cursor: not-allowed;
+  filter: brightness(0.84);
+  transform: none;
+}
+
+.contact-ref-status {
+  margin: 10px 2px 0;
+  color: rgba(255,255,255,0.68);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.contact-ref-status.is-success {
+  color: #ffb69a;
+}
+
+.contact-ref-status.is-error {
+  color: #fecaca;
+}
+
 .footer {
   position: relative;
   overflow: hidden;
@@ -2359,11 +2381,13 @@ h1 {
   .audience-diamond-core strong,
   .audience-diamond-core span {
     display: block;
+    width: 104px;
     max-width: 104px;
     margin: 0;
     padding: 0;
     transform: none;
     line-height: 1.12;
+    text-align: center;
   }
 
   .audience-diamond-core strong {
