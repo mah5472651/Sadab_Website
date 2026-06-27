@@ -14,8 +14,7 @@ export const siteConfig = {
 
 export function getSiteUrl() {
   const envSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const vercelUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "";
-  const siteUrl = envSiteUrl || vercelUrl || fallbackSiteUrl;
+  const siteUrl = envSiteUrl || fallbackSiteUrl;
 
   return siteUrl.replace(/\/$/, "");
 }
