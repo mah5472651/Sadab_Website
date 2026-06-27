@@ -1632,7 +1632,8 @@ a {
 
   .audience-ref-copy h2 {
     margin-top: 30px;
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(1.9rem, 8.8vw, 2.65rem);
+    line-height: 1.12;
   }
 
   .audience-ref-copy p {
@@ -1666,22 +1667,30 @@ a {
   }
 
   .audience-diamond-core {
+    display: flex;
     width: 108px;
     height: 108px;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-direction: column;
+  }
+
+  .audience-diamond-core strong,
+  .audience-diamond-core span {
+    max-width: 82px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.08;
   }
 
   .audience-diamond-core strong {
-    margin-top: 18px;
-    padding: 0 14px;
-    font-size: 12px;
-    line-height: 1.12;
+    font-size: 11px;
   }
 
   .audience-diamond-core span {
-    margin-top: -34px;
-    padding: 0 10px;
-    font-size: 10px;
-    line-height: 1.15;
+    color: rgba(255,255,255,0.78);
+    font-size: 9px;
   }
 
   .audience-orbit-node {
