@@ -67,9 +67,9 @@ export async function POST(request: Request) {
       {
         message:
           "Google Sheets is not connected yet. You can send this message by email instead.",
+        sheetConnected: false,
         fallbackUrl: buildEmailFallbackUrl(name, email, message)
-      },
-      { status: 503 }
+      }
     );
   }
 
@@ -95,5 +95,5 @@ export async function POST(request: Request) {
     );
   }
 
-  return NextResponse.json({ message: "Message sent successfully." });
+  return NextResponse.json({ message: "Message sent successfully.", sheetConnected: true });
 }

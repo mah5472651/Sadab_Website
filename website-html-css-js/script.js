@@ -199,8 +199,17 @@ if (contactForm) {
         throw submitError;
       }
 
+      if (result.sheetConnected === false && result.fallbackUrl) {
+        showContactStatus(
+          "error",
+          result.message || "Google Sheets is not connected yet.",
+          result.fallbackUrl
+        );
+        return;
+      }
+
       contactForm.reset();
-      showContactStatus("success", "Message sent. I will get back to you soon.");
+      showContactStatus("success", result.message || "Message sent. I will get back to you soon.");
     } catch (error) {
       showContactStatus(
         "error",

@@ -1032,17 +1032,28 @@ function ContactSection() {
         },
         body: JSON.stringify(payload)
       });
-      const result = (await response.json()) as { message?: string; fallbackUrl?: string };
+      const result = (await response.json()) as {
+        message?: string;
+        fallbackUrl?: string;
+        sheetConnected?: boolean;
+      };
 
       if (!response.ok) {
         setFallbackUrl(result.fallbackUrl || "");
         throw new Error(result.message || "Unable to submit right now.");
       }
 
-      form.reset();
       setFallbackUrl("");
+      if (result.sheetConnected === false && result.fallbackUrl) {
+        setFallbackUrl(result.fallbackUrl);
+        setFormStatus("error");
+        setFormMessage(result.message || "Google Sheets is not connected yet.");
+        return;
+      }
+
+      form.reset();
       setFormStatus("success");
-      setFormMessage("Message sent. I will get back to you soon.");
+      setFormMessage(result.message || "Message sent. I will get back to you soon.");
     } catch (error) {
       setFormStatus("error");
       setFormMessage(error instanceof Error ? error.message : "Unable to submit right now.");
