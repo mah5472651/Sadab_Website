@@ -4,6 +4,7 @@ export const runtime = "nodejs";
 
 const GOOGLE_SHEET_ID = "18GT314uSKw1Lt4x87DB81_OE8JxCrbE9_PSjy0vzF80";
 const MAX_FIELD_LENGTH = 2000;
+const CONTACT_EMAIL = "msadab2005@gmail.com";
 
 type ContactPayload = {
   name?: unknown;
@@ -21,6 +22,15 @@ function cleanText(value: unknown, maxLength = MAX_FIELD_LENGTH) {
 
 function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function buildEmailFallbackUrl(name: string, email: string, message: string) {
+  const subject = encodeURIComponent(`New project inquiry from ${name}`);
+  const body = encodeURIComponent(
+    [`Name: ${name}`, `Email: ${email}`, "", message].join("\n")
+  );
+
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}&su=${subject}&body=${body}`;
 }
 
 export async function POST(request: Request) {
@@ -56,7 +66,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message:
-          "Contact form is not connected yet. Please email msadab2005@gmail.com directly."
+          "Google Sheets is not connected yet. You can send this message by email instead.",
+        fallbackUrl: buildEmailFallbackUrl(name, email, message)
       },
       { status: 503 }
     );

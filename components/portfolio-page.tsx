@@ -980,6 +980,7 @@ function FAQ() {
 function ContactSection() {
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formMessage, setFormMessage] = useState("");
+  const [fallbackUrl, setFallbackUrl] = useState("");
 
   const contactMethods = [
     {
@@ -1014,11 +1015,13 @@ function ContactSection() {
 
     if (!payload.name || !payload.email || !payload.message) {
       setFormStatus("error");
+      setFallbackUrl("");
       setFormMessage("Please fill in your name, email, and message.");
       return;
     }
 
     setFormStatus("loading");
+    setFallbackUrl("");
     setFormMessage("");
 
     try {
@@ -1029,13 +1032,15 @@ function ContactSection() {
         },
         body: JSON.stringify(payload)
       });
-      const result = (await response.json()) as { message?: string };
+      const result = (await response.json()) as { message?: string; fallbackUrl?: string };
 
       if (!response.ok) {
+        setFallbackUrl(result.fallbackUrl || "");
         throw new Error(result.message || "Unable to submit right now.");
       }
 
       form.reset();
+      setFallbackUrl("");
       setFormStatus("success");
       setFormMessage("Message sent. I will get back to you soon.");
     } catch (error) {
@@ -1107,6 +1112,14 @@ function ContactSection() {
           {formMessage ? (
             <p className={`contact-ref-status is-${formStatus}`} role="status">
               {formMessage}
+              {fallbackUrl ? (
+                <>
+                  {" "}
+                  <a href={fallbackUrl} target="_blank" rel="noopener noreferrer">
+                    Send by email
+                  </a>
+                </>
+              ) : null}
             </p>
           ) : null}
         </form>

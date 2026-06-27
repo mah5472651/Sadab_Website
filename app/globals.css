@@ -2504,6 +2504,12 @@ a {
   color: #fecaca;
 }
 
+.contact-ref-status a {
+  color: #ffb69a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-ref-section {
   position: relative;
   overflow: hidden;

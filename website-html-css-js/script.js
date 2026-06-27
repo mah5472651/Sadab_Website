@@ -141,6 +141,26 @@ if (contactForm) {
   const statusElement = contactForm.querySelector(".contact-ref-status");
   const submitButton = contactForm.querySelector("button[type='submit']");
 
+  const showContactStatus = (status, message, fallbackUrl = "") => {
+    if (!statusElement) {
+      return;
+    }
+
+    statusElement.hidden = false;
+    statusElement.className = `contact-ref-status is-${status}`;
+    statusElement.textContent = message;
+
+    if (fallbackUrl) {
+      statusElement.append(" ");
+      const link = document.createElement("a");
+      link.href = fallbackUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Send by email";
+      statusElement.append(link);
+    }
+  };
+
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(contactForm);
@@ -151,11 +171,7 @@ if (contactForm) {
     };
 
     if (!payload.name || !payload.email || !payload.message) {
-      if (statusElement) {
-        statusElement.hidden = false;
-        statusElement.className = "contact-ref-status is-error";
-        statusElement.textContent = "Please fill in your name, email, and message.";
-      }
+      showContactStatus("error", "Please fill in your name, email, and message.");
       return;
     }
 
@@ -178,22 +194,21 @@ if (contactForm) {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(result.message || "Unable to submit right now.");
+        const submitError = new Error(result.message || "Unable to submit right now.");
+        submitError.fallbackUrl = result.fallbackUrl || "";
+        throw submitError;
       }
 
       contactForm.reset();
-      if (statusElement) {
-        statusElement.hidden = false;
-        statusElement.className = "contact-ref-status is-success";
-        statusElement.textContent = "Message sent. I will get back to you soon.";
-      }
+      showContactStatus("success", "Message sent. I will get back to you soon.");
     } catch (error) {
-      if (statusElement) {
-        statusElement.hidden = false;
-        statusElement.className = "contact-ref-status is-error";
-        statusElement.textContent =
-          error instanceof Error ? error.message : "Unable to submit right now.";
-      }
+      showContactStatus(
+        "error",
+        error instanceof Error ? error.message : "Unable to submit right now.",
+        error && typeof error === "object" && "fallbackUrl" in error
+          ? String(error.fallbackUrl)
+          : ""
+      );
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
