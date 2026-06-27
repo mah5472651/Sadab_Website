@@ -2433,29 +2433,51 @@ h1 {
   }
 
   .contact-ref-section {
-    padding: 64px 12px 72px;
+    padding: 64px 14px 72px;
   }
 
   .contact-ref-inner {
+    display: flex;
+    max-width: 430px;
     width: 100%;
-    gap: 24px;
+    flex-direction: column;
+    gap: 18px;
   }
 
   .contact-ref-copy {
+    width: 100%;
+    border: 1px solid rgba(255, 137, 91, 0.14);
+    border-radius: 24px;
+    background:
+      linear-gradient(145deg, rgba(255, 103, 56, 0.08), transparent 42%),
+      rgba(12, 12, 13, 0.72);
+    padding: 24px 18px 18px;
     padding-top: 0;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 22px 70px rgba(0,0,0,0.34);
   }
 
   .contact-ref-word {
-    top: 22px;
+    top: 30px;
     max-width: 100%;
-    font-size: clamp(3.4rem, 23vw, 5.2rem);
+    color: rgba(255, 255, 255, 0.04);
+    font-size: clamp(3rem, 19vw, 4.8rem);
+    letter-spacing: -0.04em;
   }
 
   .contact-ref-line {
     display: none;
   }
 
+  .contact-ref-pill {
+    min-height: 30px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+
   .contact-ref-copy h2 {
+    margin-top: 22px;
     font-size: clamp(2rem, 11vw, 3rem);
   }
 
@@ -2466,31 +2488,34 @@ h1 {
 
   .contact-ref-method {
     min-height: auto;
-    grid-template-columns: 40px minmax(0, 1fr) 30px;
-    gap: 12px;
+    grid-template-columns: 38px minmax(0, 1fr) 28px;
+    gap: 10px;
     border-radius: 16px;
-    padding: 12px;
+    padding: 11px;
   }
 
   .contact-ref-method-icon {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
   }
 
   .contact-ref-method small {
     font-size: 12px;
+    line-height: 1.35;
   }
 
   .contact-ref-method-arrow {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .contact-ref-methods {
-    margin-top: 34px;
+    margin-top: 24px;
   }
 
   .contact-ref-form {
+    width: 100%;
     border-radius: 18px;
     padding: 8px;
   }
@@ -2503,7 +2528,7 @@ h1 {
   }
 
   .contact-ref-form textarea {
-    min-height: 210px;
+    min-height: 168px;
   }
 
   .contact-ref-form button {
@@ -4004,6 +4029,41 @@ h1 {
 
   .pricing-ref-card-content {
     padding: 27px 22px 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-ref-section {
+    padding-inline: 10px;
+  }
+
+  .contact-ref-copy {
+    border-radius: 20px;
+    padding: 22px 14px 14px;
+  }
+
+  .contact-ref-method {
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding: 10px;
+  }
+
+  .contact-ref-method-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-ref-method-arrow {
+    display: none;
+  }
+
+  .contact-ref-form {
+    border-radius: 16px;
+    padding: 7px;
+  }
+
+  .contact-ref-form input,
+  .contact-ref-form textarea {
+    padding: 14px;
   }
 }
 

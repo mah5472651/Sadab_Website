@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mah5472651.github.io/Sadab_Website/sitemap.xml
