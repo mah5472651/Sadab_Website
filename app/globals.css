@@ -49,9 +49,9 @@ a {
 .ref-nav {
   display: flex;
   width: min(100%, 1040px);
-  height: 96px;
+  height: 76px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 24px;
   align-items: center;
   justify-content: space-between;
 }
@@ -90,7 +90,7 @@ a {
 
 .ref-contact-button,
 .ref-menu-button {
-  min-height: 44px;
+  min-height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08));
@@ -103,7 +103,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 25px;
+  padding: 0 22px;
   font-size: 13px;
   font-weight: 900;
 }
@@ -116,7 +116,7 @@ a {
 
 .ref-menu-button {
   display: none;
-  width: 44px;
+  width: 40px;
   place-items: center;
 }
 
@@ -2659,8 +2659,8 @@ a {
 
 @media (max-width: 767px) {
   .ref-nav {
-    height: 78px;
-    padding: 0 18px;
+    height: 66px;
+    padding: 0 16px;
   }
 
   .ref-nav-links,
