@@ -1086,7 +1086,7 @@ function Footer() {
           <div>
             <a href="#" className="flex items-center gap-3">
               <LogoImage className="h-11 w-11" />
-              <span className="text-xl font-black">M Media</span>
+              <span className="text-xl font-black">Mufidujjaman</span>
             </a>
             <p className="mt-6 max-w-sm text-sm leading-7 text-zinc-400">
               Premium video editing for creators, coaches, startups, and brands
