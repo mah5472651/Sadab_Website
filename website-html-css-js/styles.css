@@ -75,12 +75,14 @@ svg {
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 50;
-  background: transparent;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(7, 7, 8, 0.48);
+  backdrop-filter: blur(18px);
 }
 
 .nav {
@@ -2653,11 +2655,12 @@ h1 {
 }
 
 .ref-header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
-  z-index: 50;
-  border-bottom: 0;
-  background: transparent;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(7, 7, 8, 0.48);
+  backdrop-filter: blur(18px);
 }
 
 .ref-nav {
