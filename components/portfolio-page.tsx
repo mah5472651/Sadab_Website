@@ -34,6 +34,21 @@ const navLinks = [
 
 const contactEmailUrl =
   "https://mail.google.com/mail/?view=cm&fs=1&to=msadab2005@gmail.com";
+const whatsappNumber = "8801617893050";
+const whatsappContactUrl = `https://wa.me/${whatsappNumber}`;
+
+function buildWhatsAppContactUrl(payload: { name: string; email: string; message: string }) {
+  const text = [
+    "Hello Mufidujjaman, I want to start a video editing project.",
+    "",
+    `Name: ${payload.name}`,
+    `Email: ${payload.email}`,
+    "",
+    `Message: ${payload.message}`
+  ].join("\n");
+
+  return `${whatsappContactUrl}?text=${encodeURIComponent(text)}`;
+}
 
 const steps = [
   {
@@ -301,10 +316,14 @@ export default function PortfolioPage() {
 }
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <header className="ref-header">
       <nav className="ref-nav">
-        <a href="#" className="ref-brand" aria-label="M Media home">
+        <a href="#" className="ref-brand" aria-label="M Media home" onClick={closeMenu}>
           <LogoImage className="h-9 w-9 rounded-full" />
           <span>
             Mufidujjaman
@@ -330,13 +349,30 @@ function Header() {
             Contact Us
           </a>
           <button
+            type="button"
             className="ref-menu-button"
-            aria-label="Open navigation menu"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-controls="mobile-navigation"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((value) => !value)}
           >
             <Menu className="h-5 w-5" />
           </button>
         </div>
       </nav>
+      <div
+        id="mobile-navigation"
+        className={`ref-mobile-menu${isMenuOpen ? " is-open" : ""}`}
+      >
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} onClick={closeMenu}>
+            {link.label}
+          </a>
+        ))}
+        <a href="#contact" onClick={closeMenu}>
+          Contact Us
+        </a>
+      </div>
     </header>
   );
 }
@@ -978,9 +1014,8 @@ function FAQ() {
 }
 
 function ContactSection() {
-  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
   const [formMessage, setFormMessage] = useState("");
-  const [fallbackUrl, setFallbackUrl] = useState("");
 
   const contactMethods = [
     {
@@ -992,7 +1027,7 @@ function ContactSection() {
     {
       label: "Call us",
       value: "01617893050",
-      href: "https://wa.me/8801617893050",
+      href: whatsappContactUrl,
       icon: Phone
     },
     {
@@ -1003,7 +1038,7 @@ function ContactSection() {
     }
   ];
 
-  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -1015,49 +1050,21 @@ function ContactSection() {
 
     if (!payload.name || !payload.email || !payload.message) {
       setFormStatus("error");
-      setFallbackUrl("");
       setFormMessage("Please fill in your name, email, and message.");
       return;
     }
 
-    setFormStatus("loading");
-    setFallbackUrl("");
-    setFormMessage("");
+    const whatsappUrl = buildWhatsAppContactUrl(payload);
+    const openedWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-      const result = (await response.json()) as {
-        message?: string;
-        fallbackUrl?: string;
-        sheetConnected?: boolean;
-      };
-
-      if (!response.ok) {
-        setFallbackUrl(result.fallbackUrl || "");
-        throw new Error(result.message || "Unable to submit right now.");
-      }
-
-      setFallbackUrl("");
-      if (result.sheetConnected === false && result.fallbackUrl) {
-        setFallbackUrl(result.fallbackUrl);
-        setFormStatus("error");
-        setFormMessage(result.message || "Google Sheets is not connected yet.");
-        return;
-      }
-
-      form.reset();
-      setFormStatus("success");
-      setFormMessage(result.message || "Message sent. I will get back to you soon.");
-    } catch (error) {
-      setFormStatus("error");
-      setFormMessage(error instanceof Error ? error.message : "Unable to submit right now.");
+    if (!openedWindow) {
+      window.location.href = whatsappUrl;
+      return;
     }
+
+    form.reset();
+    setFormStatus("success");
+    setFormMessage("WhatsApp opened with your message ready to send.");
   }
 
   return (
@@ -1117,20 +1124,10 @@ function ContactSection() {
             <span>Message</span>
             <textarea name="message" placeholder="Message" rows={8} required />
           </label>
-          <button type="submit" disabled={formStatus === "loading"}>
-            {formStatus === "loading" ? "Sending..." : "Submit"}
-          </button>
+          <button type="submit">Submit</button>
           {formMessage ? (
             <p className={`contact-ref-status is-${formStatus}`} role="status">
               {formMessage}
-              {fallbackUrl ? (
-                <>
-                  {" "}
-                  <a href={fallbackUrl} target="_blank" rel="noopener noreferrer">
-                    Send by email
-                  </a>
-                </>
-              ) : null}
             </p>
           ) : null}
         </form>

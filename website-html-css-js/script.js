@@ -5,6 +5,8 @@ const yearElement = document.querySelector("#year");
 const faqItems = document.querySelectorAll(".faq-ref-item");
 const galleryVideos = Array.from(document.querySelectorAll(".edit-gallery-video-wrap video"));
 const contactForm = document.querySelector(".contact-ref-form");
+const whatsappContactNumber = "8801617893050";
+const whatsappContactUrl = `https://wa.me/${whatsappContactNumber}`;
 
 const socialProfileLinks = {
   instagram: "https://www.instagram.com/sadab.motion/",
@@ -139,9 +141,8 @@ faqItems.forEach((item) => {
 
 if (contactForm) {
   const statusElement = contactForm.querySelector(".contact-ref-status");
-  const submitButton = contactForm.querySelector("button[type='submit']");
 
-  const showContactStatus = (status, message, fallbackUrl = "") => {
+  const showContactStatus = (status, message) => {
     if (!statusElement) {
       return;
     }
@@ -149,19 +150,22 @@ if (contactForm) {
     statusElement.hidden = false;
     statusElement.className = `contact-ref-status is-${status}`;
     statusElement.textContent = message;
-
-    if (fallbackUrl) {
-      statusElement.append(" ");
-      const link = document.createElement("a");
-      link.href = fallbackUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Send by email";
-      statusElement.append(link);
-    }
   };
 
-  contactForm.addEventListener("submit", async (event) => {
+  const buildWhatsAppContactUrl = (payload) => {
+    const text = [
+      "Hello Mufidujjaman, I want to start a video editing project.",
+      "",
+      `Name: ${payload.name}`,
+      `Email: ${payload.email}`,
+      "",
+      `Message: ${payload.message}`
+    ].join("\n");
+
+    return `${whatsappContactUrl}?text=${encodeURIComponent(text)}`;
+  };
+
+  contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(contactForm);
     const payload = {
@@ -175,54 +179,20 @@ if (contactForm) {
       return;
     }
 
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-    }
-
     if (statusElement) {
       statusElement.hidden = true;
       statusElement.textContent = "";
     }
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const result = await response.json().catch(() => ({}));
+    const whatsappUrl = buildWhatsAppContactUrl(payload);
+    const openedWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-      if (!response.ok) {
-        const submitError = new Error(result.message || "Unable to submit right now.");
-        submitError.fallbackUrl = result.fallbackUrl || "";
-        throw submitError;
-      }
-
-      if (result.sheetConnected === false && result.fallbackUrl) {
-        showContactStatus(
-          "error",
-          result.message || "Google Sheets is not connected yet.",
-          result.fallbackUrl
-        );
-        return;
-      }
-
-      contactForm.reset();
-      showContactStatus("success", result.message || "Message sent. I will get back to you soon.");
-    } catch (error) {
-      showContactStatus(
-        "error",
-        error instanceof Error ? error.message : "Unable to submit right now.",
-        error && typeof error === "object" && "fallbackUrl" in error
-          ? String(error.fallbackUrl)
-          : ""
-      );
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Submit";
-      }
+    if (!openedWindow) {
+      window.location.href = whatsappUrl;
+      return;
     }
+
+    contactForm.reset();
+    showContactStatus("success", "WhatsApp opened with your message ready to send.");
   });
 }

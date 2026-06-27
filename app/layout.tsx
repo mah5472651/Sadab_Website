@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { getSiteUrl, siteConfig } from "./site-config";
 import "./globals.css";
 
-const siteUrl = "https://mah5472651.github.io/Sadab_Website";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Mufidujjaman"
   },
   description:
-    "Hire Mufidujjaman, a freelance video editor and motion designer with 5+ years of experience creating viral-ready reels, YouTube edits, podcast clips, captions, color grading, and motion graphics.",
+    siteConfig.description,
   keywords: [
     "freelance video editor",
     "video editor portfolio",
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     "Mufidujjaman",
     "Sadab Motion"
   ],
-  authors: [{ name: "Mufidujjaman", url: siteUrl }],
-  creator: "Mufidujjaman",
-  publisher: "Mufidujjaman",
+  authors: [{ name: siteConfig.creator, url: siteUrl }],
+  creator: siteConfig.creator,
+  publisher: siteConfig.creator,
   category: "Video Editing Portfolio",
   alternates: {
     canonical: "/"
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     description:
       "Premium video editing, short-form reels, YouTube edits, captions, color grading, and motion graphics for creators and brands.",
     url: siteUrl,
-    siteName: "Mufidujjaman Video Editing Portfolio",
+    siteName: `${siteConfig.creator} Video Editing Portfolio`,
     images: [
       {
         url: "/og-image.jpg",
