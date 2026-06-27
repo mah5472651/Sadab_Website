@@ -2343,29 +2343,34 @@ h1 {
 
   .audience-diamond-core {
     display: flex;
-    width: 108px;
-    height: 108px;
+    z-index: 3;
+    width: 122px;
+    height: 96px;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 5px;
     flex-direction: column;
+    background: transparent;
+    transform: translate(-50%, -50%);
   }
 
   .audience-diamond-core strong,
   .audience-diamond-core span {
-    max-width: 82px;
+    display: block;
+    max-width: 104px;
     margin: 0;
     padding: 0;
-    line-height: 1.08;
+    transform: none;
+    line-height: 1.12;
   }
 
   .audience-diamond-core strong {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .audience-diamond-core span {
     color: rgba(255,255,255,0.78);
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .audience-orbit-node {
