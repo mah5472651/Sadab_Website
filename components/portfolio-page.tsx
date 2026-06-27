@@ -31,6 +31,9 @@ const navLinks = [
   { href: "#faq", label: "Help" }
 ];
 
+const contactEmailUrl =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=msadab2005@gmail.com";
+
 const steps = [
   {
     number: "1",
@@ -978,7 +981,7 @@ function ContactSection() {
     {
       label: "Email us",
       value: "msadab2005@gmail.com",
-      href: "mailto:msadab2005@gmail.com",
+      href: contactEmailUrl,
       icon: Mail
     },
     {
@@ -1135,9 +1138,10 @@ function Footer() {
               <div className="flex gap-3">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
                 <a
-                  href="mailto:msadab2005@gmail.com"
+                  href={contactEmailUrl}
                   className="hover:text-white"
-                  target="_self"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Email msadab2005@gmail.com"
                 >
                   msadab2005@gmail.com

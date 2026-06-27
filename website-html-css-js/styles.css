@@ -1825,6 +1825,10 @@ h1 {
   align-items: end;
 }
 
+.contact-ref-inner > * {
+  min-width: 0;
+}
+
 .contact-ref-copy {
   padding-top: 42px;
 }
@@ -1919,6 +1923,7 @@ h1 {
   color: rgba(255,255,255,0.58);
   font-size: 13px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .contact-ref-method-arrow {
@@ -2278,28 +2283,139 @@ h1 {
   }
 
   .audience-ref-section {
-    padding: 52px 12px;
+    padding: 48px 12px;
   }
 
   .audience-ref-inner {
     min-height: auto;
     border-radius: 24px;
-    padding: 34px 18px 42px;
+    gap: 28px;
+    padding: 30px 16px 34px;
+  }
+
+  .audience-ref-badge {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .audience-ref-badge::after {
+    bottom: -9px;
+    border-top-width: 9px;
+    border-right-width: 9px;
   }
 
   .audience-ref-copy h2 {
-    font-size: 34px;
+    margin-top: 30px;
+    font-size: clamp(2rem, 10vw, 3rem);
   }
 
   .audience-ref-copy p {
-    font-size: 15px;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .audience-ref-visual {
-    min-height: 470px;
-    transform: scale(0.78);
-    transform-origin: center top;
-    margin-bottom: -86px;
+    width: 100%;
+    max-width: 390px;
+    min-height: 390px;
+    justify-self: center;
+    margin-bottom: 0;
+    transform: none;
+  }
+
+  .audience-ref-visual::before {
+    width: 220px;
+    height: 220px;
+  }
+
+  .audience-ref-visual::after {
+    width: 146px;
+    height: 146px;
+  }
+
+  .audience-diamond-large {
+    width: 148px;
+    height: 148px;
+  }
+
+  .audience-diamond-core {
+    width: 108px;
+    height: 108px;
+  }
+
+  .audience-diamond-core strong {
+    margin-top: 18px;
+    padding: 0 14px;
+    font-size: 12px;
+    line-height: 1.12;
+  }
+
+  .audience-diamond-core span {
+    margin-top: -34px;
+    padding: 0 10px;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .audience-orbit-node {
+    width: 112px;
+    height: 112px;
+  }
+
+  .audience-orbit-node strong,
+  .audience-orbit-node span {
+    padding: 0 10px;
+  }
+
+  .audience-orbit-node strong {
+    font-size: 13px;
+    line-height: 1.1;
+  }
+
+  .audience-orbit-node span {
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .audience-orbit-top {
+    top: 0;
+  }
+
+  .audience-orbit-left {
+    left: 0;
+  }
+
+  .audience-orbit-right {
+    right: 0;
+  }
+
+  .audience-orbit-bottom {
+    bottom: 0;
+  }
+
+  .audience-dot {
+    width: 14px;
+    height: 14px;
+    border-width: 3px;
+  }
+
+  .audience-dot-top {
+    top: 103px;
+  }
+
+  .audience-dot-left {
+    left: 107px;
+  }
+
+  .audience-dot-right {
+    right: 107px;
+  }
+
+  .audience-dot-bottom {
+    bottom: 103px;
   }
 
   .edit-gallery-section {
@@ -2317,40 +2433,81 @@ h1 {
   }
 
   .contact-ref-section {
-    padding: 76px 16px 84px;
+    padding: 64px 12px 72px;
+  }
+
+  .contact-ref-inner {
+    width: 100%;
+    gap: 24px;
+  }
+
+  .contact-ref-copy {
+    padding-top: 0;
   }
 
   .contact-ref-word {
-    top: 48px;
-    font-size: 5.2rem;
+    top: 22px;
+    max-width: 100%;
+    font-size: clamp(3.4rem, 23vw, 5.2rem);
   }
 
   .contact-ref-line {
     display: none;
   }
 
+  .contact-ref-copy h2 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .contact-ref-copy p {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
   .contact-ref-method {
-    min-height: 78px;
-    grid-template-columns: 44px minmax(0, 1fr) 32px;
+    min-height: auto;
+    grid-template-columns: 40px minmax(0, 1fr) 30px;
     gap: 12px;
+    border-radius: 16px;
     padding: 12px;
   }
 
   .contact-ref-method-icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 
   .contact-ref-method small {
     font-size: 12px;
   }
 
+  .contact-ref-method-arrow {
+    width: 30px;
+    height: 30px;
+  }
+
   .contact-ref-methods {
     margin-top: 34px;
   }
 
+  .contact-ref-form {
+    border-radius: 18px;
+    padding: 8px;
+  }
+
+  .contact-ref-form input,
+  .contact-ref-form textarea {
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 13px;
+  }
+
   .contact-ref-form textarea {
     min-height: 210px;
+  }
+
+  .contact-ref-form button {
+    min-height: 52px;
   }
 
   .orbit-outer {
